@@ -1,5 +1,8 @@
 package model;
-public class Contact {
+
+import java.io.Serializable;
+
+public class Contact implements Serializable {
     private String fullName;
     private int phoneNumber;
     private String group;
@@ -72,5 +75,17 @@ public class Contact {
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    @Override
+    public String toString() {
+        return "" +
+                "fullName='" + fullName + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", group='" + group + '\'' +
+                ", gender='" + gender + '\'' +
+                ", address='" + address + '\'' +
+                ", mail='" + mail + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' + "\n";
     }
 }

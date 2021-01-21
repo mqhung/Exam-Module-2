@@ -155,7 +155,7 @@ public class ContactManager {
                 displayContact(indexPhone, arrayList);
             } else System.out.println("Không tìm thấy");
         } else if (choice == 2) {
-            System.out.println("Mời bạn nhập vào số điện thoại");
+            System.out.println("Mời bạn nhập vào tên");
             String nameSearch = sc.nextLine();
             if (checkName(nameSearch, arrayList) != -1) {
                 int indexName = checkName(nameSearch, arrayList);

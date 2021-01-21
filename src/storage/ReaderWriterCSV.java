@@ -46,6 +46,8 @@ public class ReaderWriterCSV {
                 Contact contact = splitString(line);
                 contacts.add(contact);
             }
+            bufferedReader.close();
+            fileReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
