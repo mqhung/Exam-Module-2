@@ -26,16 +26,26 @@ public class ContactManager {
         Scanner sc = new Scanner(System.in);
         System.out.println("Full name: ");
         String fullName = sc.nextLine();
-        System.out.println("Phone Number: ");
-        int phoneNumber = Integer.parseInt(sc.nextLine());
+        System.out.println("Phone Number(9 số): ");
+        String number = "";
+        int phoneNumber = 0;
+        do{
+            System.out.println("Nhập số điện thoại");
+            number = sc.nextLine();
+            phoneNumber = Integer.parseInt(number);
+        }while (!number.matches(CheckInfo.CHECKPHONE));
         System.out.println("Group: ");
         String group = sc.nextLine();
         System.out.println("Gender: ");
         String gender = sc.nextLine();
         System.out.println("Address: ");
         String address = sc.nextLine();
-        System.out.println("mail: ");
-        String mail = sc.nextLine();
+        System.out.println("Mail (Định dạng kiểu xxx@xxx.com): ");
+        String mail = "";
+        do{
+            System.out.println("Nhập mail:");
+            mail = sc.nextLine();
+        } while (!mail.matches(CheckInfo.CHECKMAIL));
         System.out.println("Date Of Birth: ");
         String dateOfBirth = sc.nextLine();
         System.out.println("--------------------------------------");

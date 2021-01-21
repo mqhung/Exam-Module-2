@@ -3,8 +3,6 @@ package view;
 import manager.ContactManager;
 import model.Contact;
 import storage.ReaderWriterCSV;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -23,7 +21,7 @@ public class Menu {
             try {
                 choice = Integer.parseInt(sc.nextLine());
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println("Nhập sai kiểu dữ liệu");;
             }
             switch (choice) {
                 case 1:
