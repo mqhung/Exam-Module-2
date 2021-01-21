@@ -18,7 +18,6 @@ public class ContactManager {
             System.out.println("Group: " + arrayList.get(i).getGroup());
             System.out.println("Address: " + arrayList.get(i).getAddress());
             System.out.println("--------------------------------------");
-            String line = sc.nextLine();
         }
         DisplayMenu.displayMenu();
     }
@@ -37,13 +36,13 @@ public class ContactManager {
         String address = sc.nextLine();
         System.out.println("mail: ");
         String mail = sc.nextLine();
-        System.out.println("Year Of Birth: ");
-        int yearOfBirth = Integer.parseInt(sc.nextLine());
+        System.out.println("Date Of Birth: ");
+        String dateOfBirth = sc.nextLine();
         System.out.println("--------------------------------------");
-        String result = this.checkInformation(fullName, phoneNumber, group, gender, address, mail, yearOfBirth);
+        String result = this.checkInformation(fullName, phoneNumber, group, gender, address, mail, dateOfBirth);
         if (result.equals("Lưu thành công")) {
             System.out.println(result);
-            Contact contact = new Contact(fullName, phoneNumber, group, gender, address, mail, yearOfBirth);
+            Contact contact = new Contact(fullName, phoneNumber, group, gender, address, mail, dateOfBirth);
             arrayList.add(contact);
         } else {
             System.out.println(result);
@@ -53,9 +52,9 @@ public class ContactManager {
 
     }
 
-    public String checkInformation(String fullName, int phoneNumber, String group, String gender, String address, String mail, int yearOfBirth) {
+    public String checkInformation(String fullName, int phoneNumber, String group, String gender, String address, String mail, String dateOfBirth) {
         String result = "";
-        if (fullName.equals("") || group.equals("") || gender.equals("") || address.equals("") || yearOfBirth == 0) {
+        if (fullName.equals("") || group.equals("") || gender.equals("") || address.equals("") || dateOfBirth.equals("")) {
             result = "Không bỏ trống thông tin";
         } else if (!CheckInfo.checkPhone(String.valueOf(phoneNumber))) {
             result = "Nhập sai định dạng điện thoai";
@@ -85,11 +84,11 @@ public class ContactManager {
             System.out.println("mail: ");
             String mail = sc.nextLine();
             System.out.println("Year Of Birth: ");
-            int yearOfBirth = Integer.parseInt(sc.nextLine());
-            String result = this.checkInformation(fullName, phoneNumber, group, gender, address, mail, yearOfBirth);
+            String dateOfBirth = sc.nextLine();
+            String result = this.checkInformation(fullName, phoneNumber, group, gender, address, mail, dateOfBirth);
             if (result.equals("Lưu thành công")) {
                 System.out.println("Cập nhật thành công");
-                Contact contact = new Contact(fullName, phoneNumber, group, gender, address, mail, yearOfBirth);
+                Contact contact = new Contact(fullName, phoneNumber, group, gender, address, mail, dateOfBirth);
                 arrayList.set(index, contact);
             } else {
                 System.out.println(result);

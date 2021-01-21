@@ -13,7 +13,6 @@ import static view.DisplayMenu.displayMenu;
 public class Menu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        //Tao arrayList luu thong tin
         ArrayList<Contact> contacts = new ArrayList<>();
         ContactManager contactManager = new ContactManager();
         ReaderWriterCSV readerWriterCSV = new ReaderWriterCSV();
@@ -21,9 +20,9 @@ public class Menu {
         int choice = -1;
         do {
             System.out.println("Chọn chức năng: ");
-            try{
+            try {
                 choice = Integer.parseInt(sc.nextLine());
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             switch (choice) {
@@ -47,14 +46,11 @@ public class Menu {
                     contactManager.search(contacts);
                     break;
                 case 6:
-                    try {
-                        readerWriterCSV.writeFile(contacts);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    readerWriterCSV.writeFile(contacts);
                     break;
                 case 7:
-                    readerWriterCSV.readFile(contacts);
+                    contacts = readerWriterCSV.readFile();
+                    System.out.println(contacts);
                     break;
                 case 8:
                     System.exit(0);
